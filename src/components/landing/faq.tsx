@@ -18,7 +18,7 @@ const FAQS = [
   {
     question: 'How accurate is the AI analysis?',
     answer:
-      'Our AI achieves 98%+ accuracy on standard policy documents. We use GPT-4o, the most advanced AI model available, and always cite exact clause numbers so you can verify every statement. For critical decisions, we always recommend also speaking to a licensed insurance advisor.',
+      'Our AI achieves 98%+ accuracy on standard policy documents. We use advanced Gemini models and always cite exact clause numbers so you can verify every statement. For critical decisions, we always recommend also speaking to a licensed insurance advisor.',
   },
   {
     question: 'Is my policy document secure?',
@@ -33,7 +33,7 @@ const FAQS = [
   {
     question: 'What is the Coverage Score?',
     answer:
-      'The Coverage Score (0-100) is a composite score that measures how well-protected you are. It considers 6 dimensions: how much is covered (Coverage), how clear the policy is (Transparency), how simple it is to understand (Complexity), how many risks you face (Risk), how long waiting periods are (Waiting Period), and how easy it is to claim (Claim Friendliness). Higher scores in coverage and transparency are better. Lower scores in risk and complexity are better.',
+      'The Coverage Score (0-100) is a composite score that measures how well-protected you are. It considers 6 dimensions: how much is covered (Coverage), how clear the policy is (Transparency), how simple it is to understand (Complexity), how many risks you face (Risk), how long waiting periods are (Waiting Period), and how easy it is to claim (Claim Friendliness).',
   },
   {
     question: 'How does the Claim Simulator work?',
@@ -43,12 +43,12 @@ const FAQS = [
   {
     question: 'Can I compare multiple policies at once?',
     answer:
-      'Yes! The Compare Policies feature lets you upload two policies and get a detailed side-by-side comparison across 6+ categories including coverage, premium value, waiting periods, exclusions, claim friendliness, and network hospitals. We tell you which policy wins each category and give an overall recommendation.',
+      'Yes! The Compare Policies feature lets you upload two policies and get a detailed side-by-side comparison across 6+ categories including coverage, waiting periods, exclusions, claim friendliness, and network hospitals. We tell you which policy wins each category and give an overall recommendation.',
   },
   {
-    question: 'Is there a free plan?',
+    question: 'Is PolicyWise AI free to use?',
     answer:
-      'Yes! The free plan lets you analyze 3 policies per month, use basic AI chat (10 messages), and view coverage scores. There\'s no credit card required to sign up. For unlimited analyses, the Claim Simulator, and Policy Comparison, upgrade to Pro for just ₹499/month.',
+      'Yes! PolicyWise AI is free to use. You can upload policies, use the AI Chat, simulate claims, and compare policies without any subscription fees or credit card requirements.',
   },
 ];
 
@@ -66,14 +66,14 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-3">
             FAQ
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-4">
             Frequently asked{' '}
-            <span className="gradient-text">questions</span>
+            <span className="gradient-text-animate">questions</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-zinc-400">
             Everything you need to know about PolicyWise AI.
           </p>
         </motion.div>
@@ -89,12 +89,12 @@ export function FAQ() {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="bg-card border border-border rounded-2xl px-6 overflow-hidden"
+                className="bg-[#070707]/60 border border-border/40 hover:border-border/80 rounded-2xl px-6 overflow-hidden transition-colors duration-200"
               >
                 <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
+                <AccordionContent className="text-xs text-zinc-400 leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

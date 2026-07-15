@@ -24,7 +24,10 @@ export function usePolicies() {
   }, []);
 
   useEffect(() => {
-    fetchPolicies();
+    const timer = setTimeout(() => {
+      fetchPolicies();
+    }, 0);
+    return () => clearTimeout(timer);
   }, [fetchPolicies]);
 
   return { policies, isLoading, error, refetch: fetchPolicies };

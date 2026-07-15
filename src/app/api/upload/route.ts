@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Upload to Supabase Storage
     const fileBuffer = await file.arrayBuffer();
-    const { data: storageData, error: storageError } = await supabase.storage
+    const { error: storageError } = await supabase.storage
       .from('policies')
       .upload(fileName, fileBuffer, {
         contentType: 'application/pdf',

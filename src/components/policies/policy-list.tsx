@@ -9,7 +9,6 @@ import { PolicyCard } from './policy-card';
 import { usePolicies } from '@/hooks/use-policies';
 import { EmptyState } from '@/components/shared/empty-state';
 import { CardSkeleton } from '@/components/shared/loading-skeleton';
-import Link from 'next/link';
 
 export function PolicyList() {
   const { policies, isLoading, error } = usePolicies();

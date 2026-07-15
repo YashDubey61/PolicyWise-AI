@@ -2,7 +2,7 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { AlertTriangle, Clock, DollarSign, Shield, Eye, Building } from 'lucide-react';
+import { AlertTriangle, Clock, DollarSign, Shield, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { AnalysisSections, ExclusionItem, HiddenClause } from '@/types';
 

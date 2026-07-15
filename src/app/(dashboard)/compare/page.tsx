@@ -7,7 +7,6 @@ import {
   FileText,
   Trophy,
   Minus,
-  ArrowRight,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -108,11 +107,11 @@ export default function ComparePage() {
           <Button
             onClick={handleCompare}
             disabled={!policyAId || !policyBId || policyAId === policyBId || isLoading}
-            className="rounded-xl px-8 bg-gradient-to-r from-primary to-accent hover:opacity-90"
+            className="rounded-xl px-8 bg-foreground text-background hover:bg-foreground/90 font-semibold cursor-pointer shadow-lg shadow-white/5"
           >
             {isLoading ? (
               <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                <div className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin mr-2" />
                 AI Comparing...
               </>
             ) : (
@@ -140,15 +139,10 @@ export default function ComparePage() {
             className="space-y-6"
           >
             {/* Winner banner */}
-            <div className={cn(
-              'rounded-2xl border p-6 text-center',
-              result.winner === 'tie'
-                ? 'bg-muted/30 border-border'
-                : 'bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30'
-            )}>
+            <div className="rounded-2xl border border-border bg-[#070707] p-6 text-center shadow-xl">
               <div className="flex items-center justify-center gap-2 mb-3">
-                <Trophy className="w-6 h-6 text-amber-400" />
-                <h2 className="text-lg font-bold text-foreground">
+                <Trophy className="w-6 h-6 text-amber-400 animate-bounce" />
+                <h2 className="text-sm font-extrabold text-foreground uppercase tracking-wider">
                   {result.winner === 'tie'
                     ? "It's a Tie!"
                     : `Policy ${result.winner} Wins!`}
@@ -156,7 +150,7 @@ export default function ComparePage() {
                   {result.winner === 'B' && policyB && ` — ${policyB.name}`}
                 </h2>
               </div>
-              <p className="text-sm text-muted-foreground max-w-xl mx-auto">{result.recommendation}</p>
+              <p className="text-xs text-zinc-400 max-w-xl mx-auto leading-relaxed">{result.recommendation}</p>
             </div>
 
             {/* Score comparison */}

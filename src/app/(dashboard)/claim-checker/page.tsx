@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calculator, FileText, CheckCircle, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calculator, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -144,11 +144,11 @@ export default function ClaimCheckerPage() {
         <Button
           type="submit"
           disabled={!policyId || !disease || !hospitalBill || !admissionDate || isLoading}
-          className="w-full rounded-xl bg-gradient-to-r from-primary to-accent hover:opacity-90 h-12"
+          className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 font-semibold h-12 cursor-pointer shadow-lg shadow-white/5"
         >
           {isLoading ? (
             <>
-              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+              <div className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin mr-2" />
               Analyzing with AI...
             </>
           ) : (
@@ -199,8 +199,8 @@ export default function ClaimCheckerPage() {
             </div>
 
             {/* Explanation */}
-            <div className="p-4 rounded-xl bg-muted/30 border border-border">
-              <p className="text-sm text-foreground leading-relaxed">{result.explanation}</p>
+            <div className="p-4 rounded-xl bg-zinc-950/60 border border-border">
+              <p className="text-xs text-zinc-400 leading-relaxed">{result.explanation}</p>
             </div>
 
             {/* Rejection reasons */}

@@ -3,7 +3,6 @@
 import { useUser } from '@clerk/nextjs';
 import { motion } from 'framer-motion';
 import {
-  User,
   Mail,
   Calendar,
   FileText,
@@ -106,19 +105,6 @@ export default function ProfilePage() {
         ))}
       </div>
 
-      {/* Subscription */}
-      <div className="rounded-2xl bg-card border border-border p-6">
-        <h3 className="font-semibold text-foreground mb-4">Subscription</h3>
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-sm font-medium text-foreground">Free Plan</p>
-            <p className="text-xs text-muted-foreground mt-0.5">3 analyses/month · 10 AI messages</p>
-          </div>
-          <Button className="rounded-xl bg-gradient-to-r from-primary to-accent hover:opacity-90">
-            Upgrade to Pro
-          </Button>
-        </div>
-      </div>
 
       {/* Danger zone */}
       <div className="rounded-2xl border border-destructive/20 bg-destructive/5 p-6">

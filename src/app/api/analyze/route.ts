@@ -51,13 +51,15 @@ const AnalysisSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  let policyId: string | null = null;
   try {
     const { userId } = await auth();
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { policyId } = await request.json();
+    const body = await request.json();
+    policyId = body.policyId;
     if (!policyId) {
       return NextResponse.json({ error: 'policyId is required' }, { status: 400 });
     }
@@ -133,15 +135,14 @@ export async function POST(request: NextRequest) {
     console.error('Analysis error:', error);
 
     // Update policy status to error
-    try {
-      const { policyId } = await (async () => {
-        return { policyId: null };
-      })();
-      if (policyId) {
+    if (policyId) {
+      try {
         const supabase = createServerSupabaseClient();
         await supabase.from('policies').update({ status: 'error' }).eq('id', policyId);
+      } catch (dbError) {
+        console.error('Failed to set policy status to error:', dbError);
       }
-    } catch {}
+    }
 
     return NextResponse.json({ error: 'Analysis failed. Please try again.' }, { status: 500 });
   }

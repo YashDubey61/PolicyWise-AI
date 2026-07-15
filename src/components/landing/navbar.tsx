@@ -16,8 +16,6 @@ import { cn } from '@/lib/utils';
 const NAV_LINKS = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
 ];
 
 export function Navbar() {
@@ -73,21 +71,9 @@ export function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
           {!isSignedIn ? (
-            <>
-              <Button asChild variant="ghost" size="sm" className="rounded-xl text-sm">
-                <Link href="/sign-in">Log in</Link>
-              </Button>
-              <Button
-                asChild
-                size="sm"
-                className="rounded-xl text-sm bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
-              >
-                <Link href="/sign-up">
-                  Get Started
-                  <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-                </Link>
-              </Button>
-            </>
+            <Button asChild variant="ghost" size="sm" className="rounded-xl text-sm">
+              <Link href="/sign-in">Log in</Link>
+            </Button>
           ) : (
             <>
               <Button
@@ -144,20 +130,12 @@ export function Navbar() {
 
               <div className="flex flex-col gap-3 mt-auto">
                 {!isSignedIn ? (
-                  <>
-                    <Link
-                      href="/sign-in"
-                      className="inline-flex items-center justify-center rounded-xl w-full h-8 border border-border bg-background hover:bg-muted text-sm font-medium transition-colors"
-                    >
-                      Log in
-                    </Link>
-                    <Link
-                      href="/sign-up"
-                      className="inline-flex items-center justify-center rounded-xl w-full h-8 bg-gradient-to-r from-primary to-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
-                    >
-                      Get Started Free
-                    </Link>
-                  </>
+                  <Link
+                    href="/sign-in"
+                    className="inline-flex items-center justify-center rounded-xl w-full h-8 border border-border bg-background hover:bg-muted text-sm font-medium transition-colors"
+                  >
+                    Log in
+                  </Link>
                 ) : (
                   <>
                     <Link
