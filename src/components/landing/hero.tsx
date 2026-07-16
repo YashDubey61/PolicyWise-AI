@@ -262,10 +262,19 @@ export function Hero() {
           {/* Card 1: AI Chat bubble - Floating left */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            animate={{ 
+              opacity: 1, 
+              y: [0, -8, 0] 
+            }}
+            transition={{ 
+              opacity: { duration: 0.5, delay: 0.8 },
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }
+            }}
             className="absolute -left-6 top-1/3 glass border border-border/80 p-3 rounded-xl shadow-xl max-w-[200px] flex gap-2.5 items-start hidden sm:flex"
-            style={{ y: useSpring(useMotionValue(0), { stiffness: 50, damping: 10 }) }}
           >
             <div className="w-6 h-6 rounded-lg bg-zinc-900 border border-border flex items-center justify-center text-zinc-400 flex-shrink-0">
               <MessageSquare className="w-3 h-3 text-white" />
@@ -279,8 +288,19 @@ export function Hero() {
           {/* Card 2: Claims simulator check - Floating bottom right */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.6 }}
+            animate={{ 
+              opacity: 1,
+              y: [0, 8, 0]
+            }}
+            transition={{ 
+              opacity: { duration: 0.6, delay: 1.0 },
+              y: {
+                duration: 4.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.5,
+              }
+            }}
             className="absolute -right-6 bottom-8 glass border border-border/80 p-3.5 rounded-xl shadow-xl max-w-[180px] flex items-center gap-3 hidden sm:flex"
           >
             <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-border flex items-center justify-center text-emerald-400 flex-shrink-0">
