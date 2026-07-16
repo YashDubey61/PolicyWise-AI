@@ -57,7 +57,7 @@ export default function ComparePage() {
   const policyB = policies.find((p) => p.id === policyBId);
 
   return (
-    <div className="max-w-5xl space-y-8">
+    <div className="max-w-5xl mx-auto px-4 md:px-0 space-y-8">
       <PageHeader
         title="Compare Policies"
         description="Compare two insurance policies side by side to find the best one for you."
@@ -157,7 +157,7 @@ export default function ComparePage() {
             {result.scores && (
               <div className="rounded-2xl bg-card border border-border p-6">
                 <h3 className="font-semibold text-foreground mb-6">Score Comparison</h3>
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-sm font-medium text-center mb-4 text-muted-foreground">
                       {policyA?.name || 'Policy A'}
@@ -196,49 +196,93 @@ export default function ComparePage() {
 
             {/* Category comparison */}
             {result.categories && (
-              <div className="rounded-2xl bg-card border border-border overflow-hidden">
-                <div className="grid grid-cols-[1fr_auto_1fr_auto] border-b border-border">
-                  <div className="p-3 text-xs font-semibold text-muted-foreground uppercase">
-                    {policyA?.name || 'Policy A'}
-                  </div>
-                  <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-center px-6">
-                    Category
-                  </div>
-                  <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-right">
-                    {policyB?.name || 'Policy B'}
-                  </div>
-                  <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-center">
-                    Winner
-                  </div>
+              <>
+                {/* Mobile View: Vertical Cards */}
+                <div className="md:hidden space-y-4">
+                  {result.categories.map((cat, i) => (
+                    <div key={i} className="rounded-xl border border-zinc-900 bg-[#070707]/60 p-4 space-y-3">
+                      <div className="flex items-center justify-between border-b border-zinc-900 pb-2">
+                        <span className="text-xs font-bold text-white uppercase tracking-wider">{cat.name}</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[10px] text-zinc-500">Winner:</span>
+                          {cat.winner === 'tie' ? (
+                            <span className="text-xs font-medium text-zinc-400">Tie</span>
+                          ) : (
+                            <Badge className={cn(
+                              'text-[10px] rounded-full border px-2 py-0',
+                              cat.winner === 'A'
+                                ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20'
+                                : 'bg-primary/15 text-primary border-primary/20'
+                            )}>
+                              {cat.winner === 'A' ? 'Policy A' : 'Policy B'}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2 text-xs">
+                        <div className="bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-900">
+                          <div className="text-[9px] font-bold text-zinc-500 uppercase mb-1">
+                            {policyA?.name || 'Policy A'}
+                          </div>
+                          <p className="text-zinc-300 leading-relaxed">{cat.policyA}</p>
+                        </div>
+                        <div className="bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-900">
+                          <div className="text-[9px] font-bold text-zinc-500 uppercase mb-1 text-right">
+                            {policyB?.name || 'Policy B'}
+                          </div>
+                          <p className="text-zinc-300 leading-relaxed text-right">{cat.policyB}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
-                {result.categories.map((cat, i) => (
-                  <div
-                    key={i}
-                    className="grid grid-cols-[1fr_auto_1fr_auto] border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors"
-                  >
-                    <div className="p-4 text-sm text-muted-foreground">{cat.policyA}</div>
-                    <div className="p-4 text-xs font-semibold text-foreground text-center px-6 flex items-center justify-center min-w-32">
-                      {cat.name}
+                {/* Desktop View: Matrix Table */}
+                <div className="hidden md:block rounded-2xl bg-card border border-border overflow-hidden">
+                  <div className="grid grid-cols-[1fr_auto_1fr_auto] border-b border-border">
+                    <div className="p-3 text-xs font-semibold text-muted-foreground uppercase">
+                      {policyA?.name || 'Policy A'}
                     </div>
-                    <div className="p-4 text-sm text-muted-foreground text-right">{cat.policyB}</div>
-                    <div className="p-4 flex items-center justify-center">
-                      {cat.winner === 'tie' ? (
-                        <Minus className="w-4 h-4 text-muted-foreground" />
-                      ) : (
-                        <Badge className={cn(
-                          'text-xs rounded-full border',
-                          cat.winner === 'A'
-                            ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20'
-                            : 'bg-primary/15 text-primary border-primary/20'
-                        )}>
-                          {cat.winner}
-                        </Badge>
-                      )}
+                    <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-center px-6">
+                      Category
+                    </div>
+                    <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-right">
+                      {policyB?.name || 'Policy B'}
+                    </div>
+                    <div className="p-3 text-xs font-semibold text-muted-foreground uppercase text-center">
+                      Winner
                     </div>
                   </div>
-                ))}
-              </div>
+
+                  {result.categories.map((cat, i) => (
+                    <div
+                      key={i}
+                      className="grid grid-cols-[1fr_auto_1fr_auto] border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors"
+                    >
+                      <div className="p-4 text-sm text-muted-foreground">{cat.policyA}</div>
+                      <div className="p-4 text-xs font-semibold text-foreground text-center px-6 flex items-center justify-center min-w-32">
+                        {cat.name}
+                      </div>
+                      <div className="p-4 text-sm text-muted-foreground text-right">{cat.policyB}</div>
+                      <div className="p-4 flex items-center justify-center">
+                        {cat.winner === 'tie' ? (
+                          <Minus className="w-4 h-4 text-muted-foreground" />
+                        ) : (
+                          <Badge className={cn(
+                            'text-xs rounded-full border',
+                            cat.winner === 'A'
+                              ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20'
+                              : 'bg-primary/15 text-primary border-primary/20'
+                          )}>
+                            {cat.winner}
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
           </motion.div>
         )}
