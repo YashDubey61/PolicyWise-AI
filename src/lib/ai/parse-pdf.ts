@@ -1,6 +1,4 @@
-// PDF text extraction utility using pdf-parse
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { PDFParse } = require('pdf-parse');
+import pdf from 'pdf-parse';
 
 export interface ParsedPDF {
   text: string;
@@ -13,14 +11,12 @@ export interface ParsedPDF {
  * Returns the full text content and metadata.
  */
 export async function extractTextFromPDF(buffer: Buffer): Promise<ParsedPDF> {
-  const p = new PDFParse(new Uint8Array(buffer));
-  const data = await p.getText();
-  const info = await p.getInfo().catch(() => ({}));
+  const data = await pdf(buffer);
 
   return {
     text: data.text || '',
-    numPages: data.total || 0,
-    info: info || {},
+    numPages: data.numpages || 0,
+    info: data.info || {},
   };
 }
 
