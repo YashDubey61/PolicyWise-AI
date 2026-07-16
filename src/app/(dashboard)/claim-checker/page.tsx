@@ -62,7 +62,7 @@ export default function ClaimCheckerPage() {
   };
 
   return (
-    <div className="max-w-3xl space-y-8">
+    <div className="max-w-3xl mx-auto space-y-8">
       <PageHeader
         title="Claim Checker"
         description="Predict your claim outcome before you submit it. Enter your details and let AI estimate the result."
