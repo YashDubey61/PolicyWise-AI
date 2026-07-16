@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard,
   FileText,
   MessageSquare,
   Calculator,
@@ -22,12 +21,11 @@ import { UserButton, useUser } from '@clerk/nextjs';
 import { cn } from '@/lib/utils';
 
 const NAV_ITEMS = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
   { icon: FileText, label: 'Policies', href: '/policies' },
   { icon: Upload, label: 'Upload', href: '/upload' },
   { icon: MessageSquare, label: 'AI Chat', href: '/chat' },
-  { icon: GitCompare, label: 'Compare Policies', href: '/compare' },
   { icon: Calculator, label: 'Claim Checker', href: '/claim-checker' },
+  { icon: GitCompare, label: 'Compare Policies', href: '/compare' },
   { icon: History, label: 'History', href: '/history' },
 ];
 
@@ -61,7 +59,7 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Logo Header */}
       <div className="flex items-center gap-3 px-5 h-16 border-b border-zinc-900 flex-shrink-0">
         <Link
-          href="/dashboard"
+          href="/upload"
           className="flex items-center gap-2.5 min-w-0"
         >
           <div className="w-8 h-8 rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-white/5 border border-white/10">
@@ -76,7 +74,7 @@ export function Sidebar({ className }: SidebarProps) {
                 transition={{ duration: 0.15 }}
                 className="flex items-baseline gap-1 overflow-hidden whitespace-nowrap"
               >
-                <span className="text-sm font-black tracking-tight text-white uppercase">PolicyWise</span>
+                <span className="text-sm font-black tracking-tight text-white">PolicyWise</span>
                 <span className="text-[10px] font-bold px-1.5 py-0.25 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">
                   AI
                 </span>
@@ -235,12 +233,12 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Collapse vertical border line toggle trigger */}
       <button
         onClick={() => setCollapsed(!collapsed)}
-        className="absolute -right-3 top-20 w-6 h-6 rounded-full bg-black border border-zinc-800 flex items-center justify-center hover:bg-zinc-950 transition-colors z-20 shadow-lg cursor-pointer"
+        className="absolute -right-3.5 top-20 w-7 h-7 rounded-full bg-white border border-zinc-200 flex items-center justify-center hover:bg-zinc-100 transition-all z-20 shadow-md shadow-black/20 cursor-pointer"
       >
         {collapsed ? (
-          <ChevronRight className="w-3 h-3 text-zinc-400" />
+          <ChevronRight className="w-4 h-4 text-black" strokeWidth={2.5} />
         ) : (
-          <ChevronLeft className="w-3 h-3 text-zinc-400" />
+          <ChevronLeft className="w-4 h-4 text-black" strokeWidth={2.5} />
         )}
       </button>
     </motion.aside>

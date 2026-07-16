@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MessageSquare, Calculator } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
+import { DeletePolicyButton } from '@/components/policies/delete-policy-button';
 
 interface PolicyPageProps {
   params: Promise<{ id: string }>;
@@ -73,6 +74,7 @@ export default async function PolicyAnalysisPage({ params }: PolicyPageProps) {
                 Check Claim
               </Link>
             </Button>
+            <DeletePolicyButton policyId={id} />
           </div>
         }
       />

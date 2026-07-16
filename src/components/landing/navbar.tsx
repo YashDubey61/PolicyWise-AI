@@ -81,9 +81,9 @@ export function Navbar() {
                 size="sm"
                 className="rounded-xl text-sm bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
               >
-                <Link href="/dashboard">
+                <Link href="/upload">
                   <LayoutDashboard className="mr-1.5 w-3.5 h-3.5" />
-                  Dashboard
+                  Upload Policies
                 </Link>
               </Button>
               <UserButton />
@@ -139,11 +139,11 @@ export function Navbar() {
                 ) : (
                   <>
                     <Link
-                      href="/dashboard"
+                      href="/upload"
                       className="inline-flex items-center justify-center rounded-xl w-full h-8 bg-gradient-to-r from-primary to-accent text-white text-sm font-medium hover:opacity-90 transition-opacity"
                     >
                       <LayoutDashboard className="mr-1.5 w-3.5 h-3.5" />
-                      Go to Dashboard
+                      Go to Upload
                     </Link>
                   </>
                 )}

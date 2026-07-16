@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import {
-  LayoutDashboard,
   FileText,
   MessageSquare,
   Calculator,
@@ -11,6 +10,8 @@ import {
   Settings,
   Menu,
   Shield,
+  Upload,
+  History,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,11 +19,12 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 
 const NAV_ITEMS = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
   { icon: FileText, label: 'Policies', href: '/policies' },
+  { icon: Upload, label: 'Upload', href: '/upload' },
   { icon: MessageSquare, label: 'AI Chat', href: '/chat' },
   { icon: Calculator, label: 'Claim Checker', href: '/claim-checker' },
-  { icon: GitCompare, label: 'Compare', href: '/compare' },
+  { icon: GitCompare, label: 'Compare Policies', href: '/compare' },
+  { icon: History, label: 'History', href: '/history' },
   { icon: User, label: 'Profile', href: '/profile' },
   { icon: Settings, label: 'Settings', href: '/settings' },
 ];

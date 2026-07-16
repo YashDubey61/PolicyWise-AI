@@ -6,11 +6,12 @@ import { Slash } from 'lucide-react';
 import { MobileNav } from './mobile-nav';
 
 const ROUTE_LABELS: Record<string, string> = {
-  '/dashboard': 'Dashboard',
+  '/upload': 'Upload Policies',
   '/policies': 'Policies',
   '/chat': 'AI Chat',
   '/claim-checker': 'Claim Checker',
   '/compare': 'Compare Policies',
+  '/history': 'History Log',
   '/profile': 'Profile',
   '/settings': 'Settings',
   '/admin': 'Admin',
@@ -23,7 +24,7 @@ export function Topbar() {
   const currentLabel =
     ROUTE_LABELS['/' + segments[0]] ||
     segments[0]?.charAt(0).toUpperCase() + segments[0]?.slice(1) ||
-    'Dashboard';
+    'Upload';
 
   return (
     <header className="h-16 border-b border-border bg-card/50 backdrop-blur-xl flex items-center justify-between px-4 sm:px-6 flex-shrink-0">

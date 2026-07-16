@@ -84,11 +84,6 @@ export function PolicyList() {
               ? 'Try a different search term.'
               : 'Upload your first insurance policy to get AI-powered insights.'
           }
-          action={
-            search
-              ? undefined
-              : { label: 'Upload Policy', onClick: () => {} }
-          }
         />
       ) : (
         <motion.div

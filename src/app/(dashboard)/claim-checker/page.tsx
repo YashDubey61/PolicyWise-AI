@@ -64,7 +64,7 @@ export default function ClaimCheckerPage() {
   return (
     <div className="max-w-3xl space-y-8">
       <PageHeader
-        title="Claim Simulator"
+        title="Claim Checker"
         description="Predict your claim outcome before you submit it. Enter your details and let AI estimate the result."
       />
 
@@ -154,7 +154,7 @@ export default function ClaimCheckerPage() {
           ) : (
             <>
               <Calculator className="mr-2 w-4 h-4" />
-              Simulate Claim
+              Check Claim
             </>
           )}
         </Button>
