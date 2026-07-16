@@ -1,4 +1,4 @@
-import pdf from 'pdf-parse';
+import { getDocumentProxy, extractText } from 'unpdf';
 
 export interface ParsedPDF {
   text: string;
@@ -11,12 +11,13 @@ export interface ParsedPDF {
  * Returns the full text content and metadata.
  */
 export async function extractTextFromPDF(buffer: Buffer): Promise<ParsedPDF> {
-  const data = await pdf(buffer);
+  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  const { totalPages, text } = await extractText(pdf, { mergePages: true });
 
   return {
-    text: data.text || '',
-    numPages: data.numpages || 0,
-    info: data.info || {},
+    text: text || '',
+    numPages: totalPages || 0,
+    info: {},
   };
 }
 
