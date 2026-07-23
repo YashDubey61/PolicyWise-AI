@@ -4,10 +4,6 @@
 > 
 > Demystifying complex insurance fine print, sub-limits, exclusions, and hidden clauses into plain English.
 
-🌐 **Live Application**: [https://www.yashdubey.codes](https://www.yashdubey.codes)
-
-The main application code is located in the [`policywise-ai`](./policywise-ai) directory.
-
 ---
 
 ## 📌 Overview
