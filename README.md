@@ -1,52 +1,162 @@
-# PolicyWise AI 🛡️
+# 🛡️ **PolicyWise AI**
 
-> **AI-Powered Insurance Policy Analysis & Claim Assessment Platform**
-> 
-> Demystifying complex insurance fine print, sub-limits, exclusions, and hidden clauses into plain English.
-
----
-
-## 📌 Overview
-
-Insurance policies are notoriously complex, filled with legalese, hidden sub-limits, co-pay rules, and long waiting periods that catch policyholders off guard during medical emergencies.
-
-**PolicyWise AI** changes that. By leveraging advanced Large Language Models and intelligent PDF extraction, PolicyWise AI analyzes insurance policy documents in seconds and explains them clearly—as if talking to a 16-year-old—without compromising on technical accuracy or clause references.
+> ## **AI-Powered Insurance Policy Analysis & Claim Assessment Platform**
+>
+> **Demystifying** complex insurance fine print, **sub-limits**, **exclusions**, and **hidden clauses** into **plain English**.
 
 ---
 
-## ✨ Key Features
+# 📌 **Overview**
 
-- 📄 **Instant PDF Policy Parsing**: Drag & drop any health or general insurance policy PDF. Instant text extraction and clause parsing.
-- 📊 **6-Point Metric Scoring System**:
-  - **Coverage Score**: Overall comprehensiveness of medical, accidental, and critical illness terms.
-  - **Transparency Score**: Clarity of policy wording and lack of hidden traps.
-  - **Complexity Score**: Ease of understanding for everyday users.
-  - **Risk Score**: Potential coverage gaps and user exposure.
-  - **Waiting Period Score**: Evaluation of pre-existing condition wait times.
-  - **Claim Friendliness Score**: Ease of claim processing and cashless network access.
-- 🩺 **AI Claim Checker (Claim Simulator)**: Input hospital bills, treatment details, and admission dates to get:
-  - Estimated reimbursement amount (in ₹ / currency)
-  - Approval probability score (%)
-  - Specific potential rejection reasons (e.g., daily room rent sub-limits, excluded non-medical items)
-  - Checklist of required claim documents
-- 💬 **Interactive Policy Chatbot**: Ask questions directly about your uploaded policy. Answers are strictly grounded in your policy text with exact clause citations (e.g., *Clause 4.2.1*).
-- ⚖️ **Side-by-Side Policy Comparison**: Compare two insurance policies head-to-head with category-level breakdowns and winner recommendations.
-- 📜 **Policy Management & History**: View saved analyses, inspect past policy documents, and maintain your personal insurance ledger.
+Insurance policies are notoriously complex, filled with **legal jargon**, **hidden sub-limits**, **co-payment rules**, and **lengthy waiting periods** that often surprise policyholders during medical emergencies.
+
+**PolicyWise AI** leverages **Large Language Models (LLMs)** and intelligent **PDF extraction** to analyze insurance policy documents in seconds and explain them in **simple, easy-to-understand language** while maintaining **technical accuracy** and providing **exact clause references**.
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ **Key Features**
 
-- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
-- **Frontend & UI**: [React 19](https://react.dev/), [Tailwind CSS v4](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/), [Lucide Icons](https://lucide.dev/), [Shadcn UI](https://ui.shadcn.com/)
-- **AI & LLM Orchestration**: [Vercel AI SDK](https://sdk.vercel.ai/docs), [OpenAI API](https://openai.com/)
-- **Document Parsing**: `unpdf` for serverless, light-weight PDF text extraction
-- **Authentication**: [Clerk Auth](https://clerk.com/)
-- **Database & Storage**: [Supabase](https://supabase.com/)
-- **Language & Tooling**: TypeScript, ESLint
+## 📄 **Instant PDF Policy Parsing**
+
+- Upload any **Health** or **General Insurance** policy PDF.
+- **Drag & Drop** interface for seamless uploads.
+- Intelligent **text extraction** and **clause parsing** in seconds.
 
 ---
 
-## 🌐 Live Site
+## 📊 **AI-Powered 6-Point Policy Scoring System**
 
-Visit the live application at **[www.yashdubey.codes](https://www.yashdubey.codes)**.
+| **Metric** | **Description** |
+|------------|-----------------|
+| **Coverage Score** | Evaluates the comprehensiveness of medical, accidental, and critical illness coverage. |
+| **Transparency Score** | Detects hidden clauses and measures policy clarity. |
+| **Complexity Score** | Indicates how easy the policy is to understand. |
+| **Risk Score** | Identifies potential coverage gaps and financial exposure. |
+| **Waiting Period Score** | Analyzes waiting periods for pre-existing conditions. |
+| **Claim Friendliness Score** | Measures the ease of claim approval and settlement. |
+
+---
+
+## 🩺 **AI Claim Checker (Claim Simulator)**
+
+Enter:
+
+- **Hospital Bills**
+- **Treatment Details**
+- **Admission & Discharge Dates**
+
+### **Get Instant Insights**
+
+- ✅ **Estimated Claim Reimbursement**
+- 📈 **Claim Approval Probability (%)**
+- ⚠️ **Potential Rejection Reasons**
+  - Room rent sub-limits
+  - Non-medical exclusions
+  - Waiting period restrictions
+  - Policy exclusions
+- 📋 **Required Claim Document Checklist**
+
+---
+
+## 💬 **Interactive Policy Chatbot**
+
+Ask questions directly about your uploaded insurance policy.
+
+### **Features**
+
+- 📖 Natural language conversations
+- 📑 Exact clause references *(e.g., Clause 4.2.1)*
+- 🎯 Responses grounded only in your uploaded policy
+- 🚫 No hallucinated information
+
+---
+
+## ⚖️ **Side-by-Side Policy Comparison**
+
+Compare two insurance policies across multiple categories.
+
+### **Comparison Includes**
+
+- Coverage
+- Waiting Periods
+- Exclusions
+- Benefits
+- Claim Process
+- Overall Recommendation
+- Category-wise Winner Analysis
+
+---
+
+## 📜 **Policy Management & History**
+
+Manage all your insurance analyses in one place.
+
+- 📂 View previous analyses
+- 📄 Access uploaded policies
+- 📊 Review comparison reports
+- 🗂️ Maintain your insurance history
+
+---
+
+# 🛠️ **Tech Stack**
+
+### **Frontend**
+
+- **Next.js 16 (App Router)**
+- **React 19**
+- **Tailwind CSS v4**
+- **Framer Motion**
+- **Shadcn UI**
+- **Lucide React**
+
+### **AI & LLM**
+
+- **OpenAI API**
+- **Vercel AI SDK**
+
+### **Document Processing**
+
+- **unpdf**
+- Intelligent PDF Text Extraction
+- Clause Parsing
+
+### **Authentication**
+
+- **Clerk**
+
+### **Database & Storage**
+
+- **Supabase**
+
+### **Language & Tooling**
+
+- **TypeScript**
+- **ESLint**
+
+---
+
+# 🌐 **Live Demo**
+
+### **<u>Visit PolicyWise AI</u>**
+
+### **<u>https://www.yashdubey.codes</u>**
+
+---
+
+# 🚀 **Why PolicyWise AI?**
+
+- 📖 **Explains complex insurance policies in plain English**
+- 🤖 **AI-powered clause analysis**
+- 📊 **Comprehensive 6-point policy scoring**
+- 🩺 **Claim reimbursement simulator**
+- 💬 **Interactive policy chatbot**
+- ⚖️ **Side-by-side policy comparison**
+- 📜 **Policy history management**
+- 🔒 **Secure authentication & cloud storage**
+- ⚡ **Fast serverless architecture**
+
+---
+
+# ⭐ **Support**
+
+If you found this project useful, consider **starring ⭐ the repository** to support its development.
